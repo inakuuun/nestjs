@@ -15,9 +15,11 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt -y install nodejs
 nodejs -v
 npm -v
+npm i -g @nestjs/cli
 echo 'TypeScriptのコンパイラ'
 npm install -g typescript
 
 # 参考記事
 # node.jsをインストールする方法 => https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04-ja
 # linux上にnode.jsをインストールする方法 => https://qiita.com/studio_meowtoon/items/111f556d8fb11a76430a
+# ベースからのブランチの切り替え => https://qiita.com/kagami_t/items/f1e521b7e95a90376808
