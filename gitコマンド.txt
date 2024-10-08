@@ -1,0 +1,119 @@
+#### 参考記事
+- ブランチを指定してgit pushする方法
+  - https://www-creators.com/archives/5206
+- ブランチの作成
+  - https://hiro8blog.com/git-switch/
+- ブランチの削除
+  - https://qiita.com/hogeta_/items/33d2334c9b1919bd5120
+- はじめてのGit！コミット(commit)でファイルを登録してみよう
+  - https://www.sejuku.net/blog/71279
+- プルリクのやり取り
+  - https://qiita.com/obscure723/items/5265556d1b89e77c456b
+- ベースからのブランチの切り替え
+  - https://qiita.com/kagami_t/items/f1e521b7e95a90376808
+- コミットメッセージのまとめ方
+  - https://zenn.dev/ryouhei_furugen/articles/44bc9a179764eb
+
+#### 良く使うコマンドの概要
+- ブランチ削除
+git branch -D ブランチ名
+- ブランチ名の修正
+git branch -m ブランチ名
+- 新しくブランチを作成し切り替える
+git switch -c ブランチ名
+- 既存のブランチを切り替える
+git switch ブランチ名
+- ブランチ確認
+git branch
+- 現在の作業内容確認
+git status
+- ステージング
+git add ファイル名
+git add .
+- 特定のファイルをコミット
+git commit -m "コミットメッセージ" ファイル名
+- ステージングされている全てのファイルをコミット
+git commit -m "コミットメッセージ" .
+- プッシュ
+git push origin 反映したいブランチ
+- プル
+git pull origin 今いるブランチ
+- ログの確認
+git reflog
+git log --oneline
+- ブランチ情報をリモートから取得
+git fetch origin ブランチ名
+- コメントをまとめる
+git rebase -i HEAD~2
+- 強制的にプッシュ
+git push -f origin ブランチ名
+
+#### プッシュまでの一連の流れの詳細
+- gitのバージョン確認
+  - gitのversionを確認 =「git —version」
+
+- コミットまで
+  - 現在の作業内容確認 =「git status」
+  - 作業変更内容を名前をつけて保存 =「git add .」
+  - 作業変更内容を名前をつけて保存 =「git commit -m "コミットメッセージ"」
+
+- git addの取り消し
+  - ステージングされたファイルを取り消す＝「git reset HEAD ファイル名」
+
+- ログの確認
+  - 「git reflog」
+  - 「git log --oneline」
+
+- gitクローン
+  - 「git clone [GitHubのリポジトリパス]」
+  - 例
+    - 「git clone git@github.com:inakuuun/j_hab.git」
+    - 「git clone https://github.com/inakuuun/j_hab.git」
+
+- コミットの取り消し
+  - 「git reset --soft HEAD^」
+    - --soft ＝ ワークディレクトリの内容はそのままでコミットだけを取り消したい場合に使用。
+    - HEAD^ ＝　直前のコミットを意味
+
+- コミットメッセージの修正
+  - 「git rebase -i <logで確認したid>」
+    - git rebase -i 01fea12
+
+- オプション：
+  - f＝不要なコミットメッセージ
+  - r＝必要なコミットメッセージかつコミットメッセージを修正する場合に使う
+  - p=必要なコミットメッセージ
+
+- コミットメッセージ修正の取り消し
+  - 「git rebase --abort」
+
+- 強制的にプッシュ
+  - 「git push --force-with-lease origin inakuuun_branch」
+  - 「wq!」
+
+- フォルダのリストア
+  - フォルダの状態を過去のコミット状態にする ＝「git reset --hard 戻りたいコミットのコミットコード」
+  - コミットコードは「git log」などで確認できる
+  - 「git reset --hard 1b2b2c85543e0c9cc5f10345262cdbb79d6ceb63」
+
+- ブランチコマンド
+  - ブランチ名　＝ 今回は「development」を使用
+
+  - 新しくブランチを作成し切り替える =「git switch -c development」
+  - 既存のブランチを切り替える =「git switch development」
+  - ブランチ削除 =「git branch -D development」
+  - ブランチ名の修正 =「git branch -m development」
+  - ブランチ切り替え =「git checkout development」
+  - ブランチ確認 =「git branch」
+  - ブランチ情報をリモートから取得 = 「git fetch origin development」
+
+- リモートのブランチ確認
+  - リモートから情報を取得&最新化 = 「git fetch」
+  - リモートのブランチを確認 = 「git branch -a」
+
+- プッシュプル
+  - プッシュ = 「git push origin development」
+  - プッシュ先を固定してプッシュ(次回git pushコマンドだけでdevelopmentブランチにプッシュしてくれる) = 「git push -u origin development」
+  - プル = 「git pull origin development」
+  - ログ変更確認 = 「git log -p」
+ 
