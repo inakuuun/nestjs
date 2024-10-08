@@ -45,6 +45,7 @@ git log --oneline
 git fetch origin ブランチ名
 - コメントをまとめる
 git rebase -i HEAD~2
+squash
 - 強制的にプッシュ
 git push -f origin ブランチ名
 
