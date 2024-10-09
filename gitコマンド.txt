@@ -27,8 +27,13 @@ git switch -c ブランチ名
 git switch ブランチ名
 - ブランチ確認
 git branch
+- リモートのブランチも含めて確認
+git branch -a
 - 現在の作業内容確認
 git status
+- 変更を取消
+git checkout -- <ファイル名>
+git checkout -- .
 - ステージング
 git add ファイル名
 git add .
@@ -43,7 +48,9 @@ git pull origin 今いるブランチ
 - ログの確認
 git reflog
 git log --oneline
+git log -p
 - ブランチ情報をリモートから取得
+git fetch
 git fetch origin ブランチ名
 - コメントをまとめる
 git rebase -i HEAD~2
@@ -63,15 +70,11 @@ git push -f origin ブランチ名
 - git addの取り消し
   - ステージングされたファイルを取り消す＝「git reset HEAD ファイル名」
 
-- ログの確認
-  - 「git reflog」
-  - 「git log --oneline」
-
 - gitクローン
-  - 「git clone [GitHubのリポジトリパス]」
+  - git clone [GitHubのリポジトリパス]
   - 例
-    - 「git clone git@github.com:inakuuun/j_hab.git」
-    - 「git clone https://github.com/inakuuun/j_hab.git」
+    git clone git@github.com:inakuuun/j_hab.git
+    git clone https://github.com/inakuuun/j_hab.git
 
 - コミットの取り消し
   - 「git reset --soft HEAD^」
@@ -90,33 +93,7 @@ git push -f origin ブランチ名
 - コミットメッセージ修正の取り消し
   - 「git rebase --abort」
 
-- 強制的にプッシュ
-  - 「git push --force-with-lease origin inakuuun_branch」
-  - 「wq!」
-
 - フォルダのリストア
   - フォルダの状態を過去のコミット状態にする ＝「git reset --hard 戻りたいコミットのコミットコード」
   - コミットコードは「git log」などで確認できる
   - 「git reset --hard 1b2b2c85543e0c9cc5f10345262cdbb79d6ceb63」
-
-- ブランチコマンド
-  - ブランチ名　＝ 今回は「development」を使用
-
-  - 新しくブランチを作成し切り替える =「git switch -c development」
-  - 既存のブランチを切り替える =「git switch development」
-  - ブランチ削除 =「git branch -D development」
-  - ブランチ名の修正 =「git branch -m development」
-  - ブランチ切り替え =「git checkout development」
-  - ブランチ確認 =「git branch」
-  - ブランチ情報をリモートから取得 = 「git fetch origin development」
-
-- リモートのブランチ確認
-  - リモートから情報を取得&最新化 = 「git fetch」
-  - リモートのブランチを確認 = 「git branch -a」
-
-- プッシュプル
-  - プッシュ = 「git push origin development」
-  - プッシュ先を固定してプッシュ(次回git pushコマンドだけでdevelopmentブランチにプッシュしてくれる) = 「git push -u origin development」
-  - プル = 「git pull origin development」
-  - ログ変更確認 = 「git log -p」
- 
