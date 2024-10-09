@@ -38,25 +38,33 @@ git checkout -- .
 git add ファイル名
 git add .
 - 特定のファイルをコミット
-git commit -m "コミットメッセージ" ファイル名
+git commit -m "コミットメッセージ" <ファイル名>
 - ステージングされている全てのファイルをコミット
 git commit -m "コミットメッセージ" .
 - プッシュ
-git push origin 反映したいブランチ
+git push origin <反映したいブランチ名>
+- 強制的にプッシュ
+git push -f origin <ブランチ名>
 - プル
-git pull origin 今いるブランチ
+git pull origin <リモートブランチ名>
 - ログの確認
 git reflog
 git log --oneline
 git log -p
 - ブランチ情報をリモートから取得
 git fetch
-git fetch origin ブランチ名
+git fetch origin <ブランチ名>
 - コメントをまとめる
 git rebase -i HEAD~2
 squash
-- 強制的にプッシュ
-git push -f origin ブランチ名
+- Squash Mergeを行う
+git merge --squash <ブランチ名>
+git commit -m "Squashed commit message"
+git push -f origin <ブランチ名>
+- ステージング状態からステージング前に戻す
+git restore --staged <ファイル名>
+- 変更なし状態に戻す
+git restore <ファイル名>
 
 #### プッシュまでの一連の流れの詳細
 - gitのバージョン確認
