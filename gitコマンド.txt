@@ -13,6 +13,8 @@
   - https://qiita.com/kagami_t/items/f1e521b7e95a90376808
 - コミットメッセージのまとめ方
   - https://zenn.dev/ryouhei_furugen/articles/44bc9a179764eb
+- git squashのやりかた
+  - https://yossi-note.com/notes_and_usage_of_squashmerge/#:~:text=Squash%20merge%E3%81%AF%E3%80%81Git%E3%81%AB%E3%81%8A%E3%81%84%E3%81%A6,%E5%B1%A5%E6%AD%B4%E3%81%8C%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E6%AE%8B%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82
 
 #### 良く使うコマンドの概要
 - ブランチ削除
